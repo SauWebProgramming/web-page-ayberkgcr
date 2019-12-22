@@ -1,0 +1,72 @@
+body,ul{
+    padding: 0;
+    margin:0;
+}
+
+#navbar ul
+{
+    list-style: none;
+    
+}
+
+#navbar ul li
+{
+    float: left;
+    padding: 15px 20px;
+}
+
+#navbar ul li a
+{
+   text-decoration: none;
+   color: #000;
+}
+
+
+@media screen and (max-width:480px)
+{
+    #icon{
+        display: block;
+        height: 40px;
+        width: 100%;
+        background:url(menu.png) no-repeat 98% center;
+        background-color: #404040;
+        cursor: pointer;
+    }
+    
+    #navbar ul{
+        overflow: hidden;
+        background: #505050;
+        height: 0;
+    }            
+    
+    #navbar ul.open{
+        height: auto;
+    }
+    
+    #navbar ul li
+    {
+        float: none;
+        border: 1px solid #404040;
+    }
+    
+   #navbar ul li a
+    {
+       color:#fff;
+        padding: 5px;
+    }
+    
+}
+.uyeOl
+{
+    color: azure;
+}
+a:hover{
+
+    color: azure;
+    
+}
+
+#showDialog{
+
+  
+}

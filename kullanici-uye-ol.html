@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Üye ol</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/stillerim.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="js/kodlar.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        
+        <style>
+          
+          #wrapper
+          {
+              width: 700px;
+              margin: 0 auto;
+          }
+          
+          body
+          {
+              font-size: 100%;
+          }
+          
+          input
+          {
+              padding: 15px;
+              font-size: 25px;
+              border-radius: 5px;
+              border:1px solid grey;
+              width: 520px;
+          }
+          
+          label
+          {
+              display: inline-block;
+              width: 170px;
+          }
+          
+          .form-group
+          {
+             margin-bottom: 15px;
+          }
+          
+          button
+          {
+              background-color: #4CAF50;
+              color: #fff;
+              padding: 10px 50px;
+              border-radius: 5px;
+              cursor: pointer;
+              border:none;
+              margin-top: 20px;
+              width: 50%;
+          }
+          #error
+          {
+              color:red;
+              text-align: left;
+          }
+          
+          
+      </style>
+
+  </head>
+
+  <body>
+
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a class="navbar-brand" href="#"> </a>
+          <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="deneme.html">Anasayfa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="deneme2.html">Galeri</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="haberler.html">Haberler</a>
+              </li>   
+              <li class="nav-item">
+                  <div class="dropdown show">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bilgi ve Tavsiyeler
+                      </a>
+                    
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="https://www.hotcourses-turkey.com/study-in-france/once-you-arrive/fransiz-kulturu/">Fransız Kültürü</a>
+                        <a class="dropdown-item" href="fransizyemekleri.html">Fransız Yemekleri</a>
+                        <a class="dropdown-item" href="futbol.html">Fransa'da Spor</a>
+                      </div>
+                    </div>
+              </li> 
+            </ul>
+          </div>  
+        </nav>
+      
+        <div style="margin: 50px;"></div>
+    <!--Kayıt alanı -->  
+      <div id="wrapper">
+          
+          
+              <div id="error">
+         
+              </div>
+      
+              <div class="form-group">      
+                <label for="username">Kullanıcı Adı :</label>
+                <input type="text" name="username" id="username" placeholder="Kullanici adiniz..">
+            </div>
+            <div class="form-group">      
+                <label for="email">Email :</label>
+                <input type="text" name="email" id="email" placeholder="ornek@example.com">
+            </div>
+
+             <div class="form-group">      
+                <label for="phone">Telefon :</label>
+                <input type="text" name="phone" id="phone" placeholder="0-(5**)-***-****">
+            </div>
+
+            <div class="form-group">      
+                <label for="password">Parola :</label>
+                <input type="password" name="password" id="password" placeholder="Şifreniz..">
+            </div>
+
+             <div class="form-group">      
+                <label for="repassword">Parola Tekrarı :</label>
+                <input type="password" name="repassword" id="repassword" placeholder="Tekrar..">
+            </div>
+
+            <button id="btn">Kaydet</button>
+          
+    </div>
+    <div>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-bottom">
+                    <footer class="fixed bottom">Copyright &copy; by Ayberk Gocer</footer>
+                </nav>
+            </div>
+      
+      <script>
+      
+          $(function(){
+              
+              function isEmail(email)
+              {
+                  var pattern = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+                  return pattern.test(email);
+              }
+              
+              $("#btn").click(function(){
+                   var errormessage="";
+                   $("#error").html("");                 
+                  
+                  if($("#email").val()==""){
+                     errormessage+="<p>Email alanı zorunlu alan!!</p>";                        
+                  }
+                  
+                  if(isEmail($("#email").val())==false){
+                      errormessage+="<p>Email alanı düzgün girilmedi..</p>";
+                  }
+                  
+                  if($.isNumeric($("#phone").val())==false){
+                     errormessage+="<p>Telefon alanı düzgün girilmedi..</p>";                        
+                  }
+                  
+                  if($("#phone").val()==""){
+                     errormessage+="<p>Telefon alanı zorunlu alan!!</p>";                        
+                  }
+                  
+                  if($("#password").val()==""){
+                     errormessage+="<p>Parola alanı zorunlu alan!!</p>";                        
+                  }
+                  
+                  if($("#password").val() != $("#repassword").val()){
+                         errormessage+="<p>Parola alanları eşleşmiyor!!!</p>";                        
+                  }                    
+                  if($("#password").val() == $("#repassword").val()){
+                    errormessage+="<p>Kayıt Başarılı!!</p>";
+                  }
+                  if(errormessage!=""){
+                      $("#error").html(errormessage);
+                  }
+                   
+                  
+                  
+              });
+          
+          });
+          
+          
+      
+      </script>
+  </body>
+</html>
